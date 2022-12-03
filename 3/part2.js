@@ -9,14 +9,10 @@ const main = async () => {
 
   const lines = await getLines(inputPath);
   for (let i = 0; i < lines.length; i += 3) {
-    const rucksack1 = lines[i];
-    const rucksack2 = lines[i + 1];
-    const rucksack3 = lines[i + 2];
-
     const sortedHashes = [
-      getHashTable(rucksack1),
-      getHashTable(rucksack2),
-      getHashTable(rucksack3),
+      getHashTable(lines[i]),
+      getHashTable(lines[i + 1]),
+      getHashTable(lines[i + 2]),
     ].sort((a, b) => (Object.keys(a).length > Object.keys(b).length ? -1 : 1));
 
     hash1 = sortedHashes[0];
