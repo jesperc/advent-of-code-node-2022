@@ -1,7 +1,7 @@
 const getLines = require("../helpers/getLines");
 const isEmptyOrNewline = require("../helpers/isEmptyOrNewline");
 
-const inputPath = "./input.txt";
+const inputPath = "./1/input.txt";
 
 const main = async () => {
   const lines = await getLines(inputPath);

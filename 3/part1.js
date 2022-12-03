@@ -3,7 +3,7 @@ const isEmptyOrNewline = require("../helpers/isEmptyOrNewline");
 const getHashTable = require("./helpers/getHashTable");
 const getPriority = require("./helpers/getPriority");
 
-const inputPath = "./input.txt";
+const inputPath = "./3/input.txt";
 
 const main = async () => {
   let sumPriority = 0;

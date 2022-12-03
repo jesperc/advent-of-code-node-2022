@@ -2,7 +2,7 @@ const getLines = require("../helpers/getLines");
 const getMyHand = require("./helpers/getMyHand");
 const getScore = require("./helpers/getScore");
 
-const inputPath = "./input.txt";
+const inputPath = "./2/input.txt";
 
 const getReadableString = (hand) => {
   if (hand === "A") return "rock";
