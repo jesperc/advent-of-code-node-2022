@@ -20,13 +20,13 @@ const main = async () => {
 
   const sortedCalories = calories.sort((a, b) => (a > b ? 1 : -1));
   const length = sortedCalories.length;
-  console.log(
+  return (
     sortedCalories[length - 1] +
-      sortedCalories[length - 2] +
-      sortedCalories[length - 3]
+    sortedCalories[length - 2] +
+    sortedCalories[length - 3]
   );
 };
 
 main()
-  .then(() => console.log("done!"))
+  .then((result) => console.log(result))
   .catch((error) => console.error(error));

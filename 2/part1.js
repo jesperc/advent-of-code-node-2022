@@ -19,9 +19,9 @@ const main = async () => {
     score += getScore(opponentHand, myHand);
   }
 
-  console.log(score);
+  return score;
 };
 
 main()
-  .then(() => console.log("done!"))
+  .then((result) => console.log(result))
   .catch((error) => console.error(error));

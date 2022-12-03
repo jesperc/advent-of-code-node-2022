@@ -24,9 +24,9 @@ const main = async () => {
     }
   }
 
-  console.log(elfWithHighestCalories);
+  return elfWithHighestCalories;
 };
 
 main()
-  .then(() => console.log("done!"))
+  .then((result) => console.log(result))
   .catch((error) => console.log(error));
