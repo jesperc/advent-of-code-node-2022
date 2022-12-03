@@ -19,7 +19,7 @@ const main = async () => {
     hash2 = sortedHashes[1];
     hash3 = sortedHashes[2];
 
-    var keys = Object.keys(hash1);
+    const keys = Object.keys(hash1);
     for (char of keys) {
       if (hash1[char] === hash2[char] && hash1[char] === hash3[char]) {
         sumPriority += getPriority(char);
