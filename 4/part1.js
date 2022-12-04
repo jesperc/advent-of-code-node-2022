@@ -1,4 +1,4 @@
-const arrayIntersects = require("../helpers/arrayIntersects");
+const arrayFullyIntersects = require("../helpers/arrayFullyIntersects");
 const getLines = require("../helpers/getLines");
 const getRange = require("../helpers/getRange");
 const getCleaningIndices = require("./helpers/getCleaningIndices");
@@ -14,7 +14,7 @@ const main = async () => {
     const size2 = cleaningIndices[1].end - cleaningIndices[1].start + 1;
     const range1 = getRange(size1, cleaningIndices[0].start);
     const range2 = getRange(size2, cleaningIndices[1].start);
-    if (arrayIntersects(range1, range2)) {
+    if (arrayFullyIntersects(range1, range2)) {
       ++intersections;
     }
   }
