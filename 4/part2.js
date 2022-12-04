@@ -1,7 +1,7 @@
 const arrayOverlaps = require("../helpers/arrayOverlaps");
 const getLines = require("../helpers/getLines");
 const getRange = require("../helpers/getRange");
-const getCleaningPair = require("./helpers/getCleaningPair");
+const getCleaningIndices = require("./helpers/getCleaningIndices");
 
 const inputPath = "./4/input.txt";
 
@@ -9,11 +9,11 @@ const main = async () => {
   const lines = await getLines(inputPath);
   let intersections = 0;
   for (let line of lines) {
-    const cleaningPair = getCleaningPair(line);
-    const size1 = cleaningPair[1] - cleaningPair[0] + 1;
-    const size2 = cleaningPair[3] - cleaningPair[2] + 1;
-    const range1 = getRange(size1, cleaningPair[0]);
-    const range2 = getRange(size2, cleaningPair[2]);
+    const cleaningIndices = getCleaningIndices(line);
+    const size1 = cleaningIndices[0].end - cleaningIndices[0].start + 1;
+    const size2 = cleaningIndices[1].end - cleaningIndices[1].start + 1;
+    const range1 = getRange(size1, cleaningIndices[0].start);
+    const range2 = getRange(size2, cleaningIndices[1].start);
     if (arrayOverlaps(range1, range2)) {
       ++intersections;
     }
