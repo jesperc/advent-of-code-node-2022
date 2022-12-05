@@ -1,13 +1,15 @@
 const isEmptyOrNewline = require("../../helpers/isEmptyOrNewline");
 
-const getStacks = (lines) => {
+const segment = 4
+
+const parseStacks = (lines) => {
   const stacks = []
   for (let line of lines) {
-    for (let i = 0; i < line.length; i += 4) {
+    for (let i = 0; i < line.length; i += segment) {
       if (isEmptyOrNewline(line[i])) {
         continue
       }
-      const index = i / 4;
+      const index = i / segment;
       stacks[index] = stacks[index] || []      
       stacks[index].push(line[i + 1])
     }
@@ -16,4 +18,4 @@ const getStacks = (lines) => {
   return stacks.map((stack) => stack.reverse())
 };
 
-module.exports = getStacks;
+module.exports = parseStacks;
