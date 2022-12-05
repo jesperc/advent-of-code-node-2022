@@ -1,25 +1,33 @@
-const arrayOverlaps = require("../helpers/arrayOverlaps");
 const getLines = require("../helpers/getLines");
-const getRange = require("../helpers/getRange");
-const getCleaningIndices = require("./helpers/getCleaningIndices");
+const isEmptyOrNewline = require("../helpers/isEmptyOrNewline");
+const getInstructions = require("./helpers/getInstructions");
+const getStacks = require("./helpers/getStacks");
+const moveStacksV2 = require("./helpers/moveStacksV2");
 
-const inputPath = "./4/input.txt";
+const inputPath = "./5/input.txt";
 
 const main = async () => {
+  const instructions = []
+  let stacks = []
+
   const lines = await getLines(inputPath);
-  let intersections = 0;
   for (let line of lines) {
-    const cleaningIndices = getCleaningIndices(line);
-    const size1 = cleaningIndices[0].end - cleaningIndices[0].start + 1;
-    const size2 = cleaningIndices[1].end - cleaningIndices[1].start + 1;
-    const range1 = getRange(size1, cleaningIndices[0].start);
-    const range2 = getRange(size2, cleaningIndices[1].start);
-    if (arrayOverlaps(range1, range2)) {
-      ++intersections;
+    if (isEmptyOrNewline()) {
+      continue
+    }
+
+    if (line.includes("move")) {
+      instructions.push(getInstructions(line))
+    } else {
+      stacks.push(line)
     }
   }
 
-  return intersections;
+  stacks = getStacks(stacks)
+  stacks = moveStacksV2(stacks, instructions)
+  return stacks
+    .map((crates) => crates[crates.length - 1])
+    .join("")
 };
 
 main()

@@ -1,9 +1,7 @@
-const arrayHasOnlyDuplicates = require("../helpers/arrayHasOnlyDuplicates");
 const getLines = require("../helpers/getLines");
 const isEmptyOrNewline = require("../helpers/isEmptyOrNewline");
 const getInstructions = require("./helpers/getInstructions");
 const getStacks = require("./helpers/getStacks");
-const getTopCrates = require("./helpers/getTopCrates");
 const moveStacks = require("./helpers/moveStacks");
 
 const inputPath = "./5/input.txt";
@@ -27,10 +25,9 @@ const main = async () => {
 
   stacks = getStacks(stacks)
   stacks = moveStacks(stacks, instructions)
-  const crates = getTopCrates(stacks)
-  if (arrayHasOnlyDuplicates(crates)) {
-    return crates[0]
-  }
+  return stacks
+    .map((crates) => crates[crates.length - 1])
+    .join("")
 };
 
 main()
