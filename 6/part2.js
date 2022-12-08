@@ -23,10 +23,7 @@ const main = async () => {
     }
   }
 
-  return {
-    lastIndex,
-    lastMarker
-  }
+  return lastIndex
 };
 
 main()
