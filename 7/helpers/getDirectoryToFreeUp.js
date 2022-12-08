@@ -1,18 +1,19 @@
-const getDirectoryToFreeUp = (directories) => {
-  const sortedDirectories = directories
-    .map((dir) => parseInt(dir.size))
-    .sort((a, b) => a > b ? -1 : 1)
-  const usedSpace = sortedDirectories[0]
-  const unusedSpace = 70000000 - usedSpace
-  const neededSpace = 30000000 - unusedSpace
+const totalSpace = 70000000;
+const updateSpace = 30000000;
 
-  console.log(neededSpace)
-  currentDir = { path: "n/a", size: 100000000}
+const getDirectoryToFreeUp = (directories) => {
+  const usedSpace = directories
+    .map((dir) => parseInt(dir.size))
+    .sort((a, b) => (a > b ? -1 : 1))[0];
+  const unusedSpace = totalSpace - usedSpace;
+  const neededSpace = updateSpace - unusedSpace;
+
+  currentDir = { path: null, size: totalSpace + 1 };
   for (let dir of directories) {
     if (dir.size > neededSpace && dir.size < currentDir.size) {
-      currentDir = dir
+      currentDir = dir;
     }
   }
-  return currentDir
-}
+  return currentDir;
+};
 module.exports = getDirectoryToFreeUp;
