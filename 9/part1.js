@@ -1,6 +1,6 @@
 const getLines = require("../helpers/getLines");
 const moveHead = require("./helpers/moveHead");
-const moveTail = require("./helpers/moveTail");
+const moveTail = require("./helpers/moveBody");
 
 const inputPath = "./9/input.txt";
 
