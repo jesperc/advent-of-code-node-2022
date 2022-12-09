@@ -7,6 +7,7 @@ const inputPath = "./7/input.txt";
 const main = async () => {
   let path = "";
   const files = [];
+
   const lines = await getLines(inputPath);
   for (let line of lines) {
     const segments = line.split(" ");
