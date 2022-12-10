@@ -1,5 +1,5 @@
 const { exec } = require("child_process");
-const lastCompletedDay = 9;
+const lastCompletedDay = 10;
 
 const main = async () => {
   for (let i = 0; i < 25; i++) {
