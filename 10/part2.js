@@ -36,7 +36,7 @@ const main = async () => {
       ++state.executionCycleCount;
     }
 
-    // update CRT
+    // update CRT row
     state.crt[cycle - 1] = ".";
     if (Math.abs(state.x - ((cycle - 1) % 40)) <= 1) {
       state.crt[cycle - 1] = "#";
@@ -56,7 +56,7 @@ const main = async () => {
 
   console.log("\n");
   for (let i = 0; i < 240; i += 40) {
-    const row = state.crt.slice(i, i + 40).join("");
+    console.log(state.crt.slice(i, i + 40).join(""));
   }
   return "";
 };
