@@ -1,16 +1,16 @@
-const moveHead = (grid, direction) => {
+const moveHead = (knot, direction) => {
   switch (direction) {
     case "L":
-      --grid.head.x;
+      --knot.x;
       break;
     case "R":
-      ++grid.head.x;
+      ++knot.x;
       break;
     case "U":
-      ++grid.head.y;
+      ++knot.y;
       break;
     case "D":
-      --grid.head.y;
+      --knot.y;
       break;
     default:
       throw "invalid direction";
