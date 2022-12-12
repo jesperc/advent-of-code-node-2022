@@ -1,10 +1,9 @@
-const createMonkey = (part) => {
+const createMonkey = () => {
   return {
     items: [],
     inspections: 0,
     divisible: 0,
-    bored:
-      part === "part1" ? (input) => Math.floor(input / 3) : (input) => input,
+    bored: () => "NOT IMPLEMENTED",
     adjustWorryLevel: () => "NOT IMPLEMENTED",
     operation: () => "NOT IMPLEMENTED",
     test: () => "NOT IMPLEMENTED",

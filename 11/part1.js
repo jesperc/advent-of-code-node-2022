@@ -19,13 +19,17 @@ const main = async () => {
     }
 
     if (line.startsWith("Monkey")) {
-      monkey = createMonkey("part1");
+      monkey = createMonkey();
       continue;
     }
 
     parseInstruction(monkey, line);
   }
   monkeys.push(monkey);
+
+  for (let monkey of monkeys) {
+    monkey.bored = (input) => Math.floor(input / 3)
+  }
 
   const rounds = 20;
   for (let i = 0; i < rounds; ++i) {
